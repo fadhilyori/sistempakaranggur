@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Sistem Pakar Anggur</string>
+    <string name="logo_aplikasi">LOGO APLIKASI</string>
+    <string name="username">USERNAME</string>
+    <string name="password">PASSWORD</string>
+    <string name="login">LOGIN</string>
+    <string name="email">EMAIL</string>
+    <string name="register">REGISTER</string>
 </resources>
