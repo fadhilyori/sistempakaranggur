@@ -9,10 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DiagnosaActivity"
-            android:label="Daftar Diagnosa">
-        </activity>
-        <activity android:name=".LoginActivity"
+        <activity
+            android:name=".DiagnosaActivity"
+            android:label="Daftar Diagnosa" />
+        <activity
+            android:name=".LoginActivity"
             android:label="Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,8 +21,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RegisterActivity" android:label="Register" />
-        <activity android:name=".KonsultasiActivity" android:label="Konsultasi"></activity>
+        <activity
+            android:name=".RegisterActivity"
+            android:label="Register" />
+        <activity
+            android:name=".KonsultasiActivity"
+            android:label="Konsultasi" />
+        <activity android:name=".DetailDiagnosaActivity" />
+        <activity
+            android:name=".TambahGejalaToDiagnosaActivity"
+            android:label="Tambah Gejala Diagnosa"/>
     </application>
 
 </manifest>
