@@ -1,4 +1,4 @@
-package dev.anggur.sistempakaranggur;
+package dev.anggur.sistempakaranggur.models;
 
 import java.util.ArrayList;
 

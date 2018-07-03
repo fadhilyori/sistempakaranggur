@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:paddingLeft="20dp"
     android:paddingRight="20dp"
-    tools:context="dev.anggur.sistempakaranggur.LoginActivity">
+    tools:context="dev.anggur.sistempakaranggur.activity.LoginActivity">
 
     <ImageView
         android:layout_width="match_parent"

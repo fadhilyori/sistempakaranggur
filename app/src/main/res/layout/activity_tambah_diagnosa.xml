@@ -4,6 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="dev.anggur.sistempakaranggur.TambahDiagnosaActivity">
+    tools:context="dev.anggur.sistempakaranggur.activity.TambahDiagnosaActivity">
 
 </android.support.constraint.ConstraintLayout>

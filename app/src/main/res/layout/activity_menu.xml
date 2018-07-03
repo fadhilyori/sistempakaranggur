@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:gravity="center"
     android:padding="20dp"
-    tools:context="dev.anggur.sistempakaranggur.MenuActivity">
+    tools:context="dev.anggur.sistempakaranggur.activity.MenuActivity">
 
     <Button
         android:id="@+id/btn_daftar_diagnosa"

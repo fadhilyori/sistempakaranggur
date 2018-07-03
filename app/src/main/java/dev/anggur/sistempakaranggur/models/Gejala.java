@@ -1,4 +1,4 @@
-package dev.anggur.sistempakaranggur;
+package dev.anggur.sistempakaranggur.models;
 
 /**
  * Created by Imam Abu Mansur on 04/07/2018.

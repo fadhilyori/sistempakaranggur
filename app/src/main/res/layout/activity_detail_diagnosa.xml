@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".DetailDiagnosaActivity">
+    tools:context=".activity.DetailDiagnosaActivity">
 
     <TextView
         android:id="@+id/txv_judul_diagnosa"

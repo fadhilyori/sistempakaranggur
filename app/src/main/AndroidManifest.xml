@@ -10,10 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".DiagnosaActivity"
+            android:name=".activity.DiagnosaActivity"
             android:label="Daftar Diagnosa" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".activity.LoginActivity"
             android:label="Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,17 +22,17 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".RegisterActivity"
+            android:name=".activity.RegisterActivity"
             android:label="Register" />
         <activity
-            android:name=".KonsultasiActivity"
+            android:name=".activity.KonsultasiActivity"
             android:label="Konsultasi" />
-        <activity android:name=".DetailDiagnosaActivity" />
+        <activity android:name=".activity.DetailDiagnosaActivity" />
         <activity
-            android:name=".TambahGejalaToDiagnosaActivity"
+            android:name=".activity.TambahGejalaToDiagnosaActivity"
             android:label="Tambah Gejala Diagnosa" />
-        <activity android:name=".TambahDiagnosaActivity" />
-        <activity android:name=".MenuActivity"></activity>
+        <activity android:name=".activity.TambahDiagnosaActivity" />
+        <activity android:name=".activity.MenuActivity"></activity>
     </application>
 
 </manifest>

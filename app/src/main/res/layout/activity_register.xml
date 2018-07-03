@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:paddingLeft="20dp"
     android:paddingRight="20dp"
-    tools:context="dev.anggur.sistempakaranggur.RegisterActivity">
+    tools:context="dev.anggur.sistempakaranggur.activity.RegisterActivity">
 
     <ImageView
         android:layout_width="match_parent"

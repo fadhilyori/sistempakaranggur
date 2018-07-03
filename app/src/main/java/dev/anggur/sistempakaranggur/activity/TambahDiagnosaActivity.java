@@ -1,7 +1,9 @@
-package dev.anggur.sistempakaranggur;
+package dev.anggur.sistempakaranggur.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import dev.anggur.sistempakaranggur.R;
 
 public class TambahDiagnosaActivity extends AppCompatActivity {
 

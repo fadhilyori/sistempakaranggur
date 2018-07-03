@@ -1,4 +1,4 @@
-package dev.anggur.sistempakaranggur;
+package dev.anggur.sistempakaranggur.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +9,7 @@ import android.widget.Button;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import dev.anggur.sistempakaranggur.R;
 
 public class MenuActivity extends AppCompatActivity {
 

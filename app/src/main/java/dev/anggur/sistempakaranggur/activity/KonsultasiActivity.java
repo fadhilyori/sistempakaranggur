@@ -1,4 +1,4 @@
-package dev.anggur.sistempakaranggur;
+package dev.anggur.sistempakaranggur.activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +8,7 @@ import android.widget.ListView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import dev.anggur.sistempakaranggur.R;
 
 public class KonsultasiActivity extends AppCompatActivity {
 
