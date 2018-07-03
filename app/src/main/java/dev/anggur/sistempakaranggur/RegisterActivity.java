@@ -37,8 +37,7 @@ public class RegisterActivity extends AppCompatActivity {
                 break;
             case R.id.lsv_to_login:
                 Intent intentToLogin = new Intent(RegisterActivity.this,LoginActivity.class);
-                intentToLogin.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                intentToLogin.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intentToLogin.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intentToLogin);
                 break;
         }
