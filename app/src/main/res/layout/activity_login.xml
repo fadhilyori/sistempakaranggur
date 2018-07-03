@@ -9,13 +9,20 @@
     android:paddingLeft="20dp"
     android:paddingRight="20dp"
     tools:context="dev.anggur.sistempakaranggur.LoginActivity">
+
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@mipmap/ic_launcher_round"
+        android:layout_height="200dp"
+        android:src="@drawable/grape"
         android:paddingTop="25dp"
         android:paddingBottom="25dp"
         android:contentDescription="@string/logo_aplikasi"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:textAlignment="center"
+        android:text="@string/author"/>
     <EditText
         android:id="@+id/edt_username"
         android:layout_width="match_parent"
@@ -37,6 +44,7 @@
         android:backgroundTint="@color/colorPrimary"
         android:textColor="@android:color/white"/>
     <TextView
+        android:id="@+id/txv_to_register"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAlignment="center"

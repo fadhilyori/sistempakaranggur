@@ -8,6 +8,7 @@
     tools:context=".DetailDiagnosaActivity">
 
     <TextView
+        android:id="@+id/txv_judul_diagnosa"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="25sp"
@@ -24,14 +25,16 @@
         android:orientation="horizontal">
 
         <Button
+            android:id="@+id/btn_tambah_gejala"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tambah Gejala"/>
+            android:text="@string/btn_text_tambah_gejala"/>
 
         <Button
+            android:id="@+id/btn_edit_diagnosa"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Edit Diagnosa"/>
+            android:text="@string/btn_text_edit_diagnosa"/>
     </LinearLayout>
 
     <android.support.v7.widget.CardView
@@ -50,14 +53,14 @@
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
                 android:textSize="18sp"
-                android:labelFor="@+id/cont_desc"
-                android:text="Deskripsi : "/>
+                android:labelFor="@id/txv_keterangan"
+                android:text="Keterangan : "/>
 
             <TextView
-                android:id="@+id/cont_desc"
+                android:id="@+id/txv_keterangan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Deskripsi anda disini, isi banyak ya bafdlkfsldkgksgklsgnklsgnklgfndkgndfkngkdnvwtjiwvthjivhtierwtiru"/>
+                android:text="@string/teks_dummy_keterangan"/>
 
         </LinearLayout>
 
@@ -79,15 +82,14 @@
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
                 android:textSize="18sp"
-                android:labelFor="@+id/cont_desc"
+                android:labelFor="@id/lsv_gejala"
                 android:text="Gejala : "/>
 
             <ListView
+                android:id="@+id/lsv_gejala"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:listitem="@layout/list_item">
-
-            </ListView>
+                tools:listitem="@layout/list_item"/>
 
         </LinearLayout>
 

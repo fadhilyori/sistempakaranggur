@@ -8,4 +8,9 @@
     <string name="register">REGISTER</string>
     <string name="register_here">Register here</string>
     <string name="login_here">Login here</string>
+    <string name="teks_dummy_keterangan">Deskripsi anda disini, isi banyak ya bafdlkfsldkgksgklsgnklsgnklgfndkgndfkngkdnvwtjiwvthjivhtierwtiru</string>
+    <string name="btn_text_tambah_gejala">Tambah Gejala</string>
+    <string name="btn_text_edit_diagnosa">Edit Diagnosa</string>
+    <string name="author">By : Tutus Dwiyantoro</string>
+    <string name="btn_text_tambahkan_gejala">TAMBAHKAN GEJALA</string>
 </resources>
