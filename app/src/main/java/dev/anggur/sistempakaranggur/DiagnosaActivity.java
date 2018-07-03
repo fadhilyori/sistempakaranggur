@@ -1,5 +1,6 @@
 package dev.anggur.sistempakaranggur;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -25,5 +26,7 @@ public class DiagnosaActivity extends AppCompatActivity {
 
     @OnClick(R.id.fab_tambah_diagnosa)
     public void onViewClicked() {
+        Intent intentAddDiagnosa = new Intent(DiagnosaActivity.this,TambahDiagnosaActivity.class);
+        startActivity(intentAddDiagnosa);
     }
 }

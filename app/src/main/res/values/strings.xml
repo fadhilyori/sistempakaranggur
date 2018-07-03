@@ -13,4 +13,6 @@
     <string name="btn_text_edit_diagnosa">Edit Diagnosa</string>
     <string name="author">By : Tutus Dwiyantoro</string>
     <string name="btn_text_tambahkan_gejala">TAMBAHKAN GEJALA</string>
+    <string name="btn_text_daftar_diagnosa">Daftar Diagnosa</string>
+    <string name="btn_text_konsultasi">Konsultasi</string>
 </resources>

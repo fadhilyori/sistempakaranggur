@@ -1,5 +1,6 @@
 package dev.anggur.sistempakaranggur;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -34,8 +35,16 @@ public class LoginActivity extends AppCompatActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_login:
+                Intent intentToDiagnosa = new Intent(LoginActivity.this,MenuActivity.class);
+                intentToDiagnosa.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                intentToDiagnosa.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intentToDiagnosa);
                 break;
             case R.id.txv_to_register:
+                Intent intentToRegister = new Intent(LoginActivity.this,RegisterActivity.class);
+                intentToRegister.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                intentToRegister.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intentToRegister);
                 break;
         }
     }

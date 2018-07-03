@@ -30,7 +30,9 @@
         <activity android:name=".DetailDiagnosaActivity" />
         <activity
             android:name=".TambahGejalaToDiagnosaActivity"
-            android:label="Tambah Gejala Diagnosa"/>
+            android:label="Tambah Gejala Diagnosa" />
+        <activity android:name=".TambahDiagnosaActivity" />
+        <activity android:name=".MenuActivity"></activity>
     </application>
 
 </manifest>

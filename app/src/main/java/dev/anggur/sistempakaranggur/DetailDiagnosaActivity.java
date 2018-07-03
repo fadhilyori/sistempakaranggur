@@ -1,5 +1,6 @@
 package dev.anggur.sistempakaranggur;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -35,6 +36,7 @@ public class DetailDiagnosaActivity extends AppCompatActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_tambah_gejala:
+                startActivity(new Intent(DetailDiagnosaActivity.this,TambahGejalaToDiagnosaActivity.class));
                 break;
             case R.id.btn_edit_diagnosa:
                 break;
