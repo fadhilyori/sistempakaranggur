@@ -1,35 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:layout_height="wrap_content"
     tools:context="dev.anggur.sistempakaranggur.activity.KonsultasiActivity">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:textAlignment="center"
-        android:paddingTop="5dp"
-        android:paddingBottom="20dp"
-        android:labelFor="@id/lsv_konsultasi"
-        android:text="Isi dengan kondisi yang dialami"/>
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAlignment="center"
+            android:paddingTop="5dp"
+            android:paddingBottom="20dp"
+            android:labelFor="@id/lsv_konsultasi"
+            android:text="Isi dengan kondisi yang dialami"/>
 
-    <ListView
-        android:id="@+id/lsv_konsultasi"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:listitem="@layout/list_question">
+        <dev.anggur.sistempakaranggur.NonScrollListView
+            android:id="@+id/lsv_konsultasi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:listitem="@layout/list_question"/>
 
-    </ListView>
+        <Button
+            android:id="@+id/btn_submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Submit" />
+    </LinearLayout>
 
-    <Button
-        android:id="@+id/btn_submit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="Submit" />
-
-</LinearLayout>
+</ScrollView>

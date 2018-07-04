@@ -43,7 +43,8 @@ public class ListPertanyaanAdapter extends ArrayAdapter<Gejala>{
             viewHolder = (ViewHolder) convertView.getTag();
         }
 
-        viewHolder.chbKonsultasi.setText(String.valueOf(position+1) + " : " +gejala.getNama_gejala() + "?");
+        viewHolder.chbKonsultasi.setText(gejala.getNama_gejala());
+//        viewHolder.chbKonsultasi.setText(String.valueOf(position+1) + " : " +gejala.getNama_gejala() + "?");
 
         return convertView;
     }

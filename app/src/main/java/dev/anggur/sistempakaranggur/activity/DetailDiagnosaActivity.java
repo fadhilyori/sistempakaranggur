@@ -5,15 +5,19 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ListView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import java.util.HashMap;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import dev.anggur.sistempakaranggur.NonScrollListView;
 import dev.anggur.sistempakaranggur.R;
 import dev.anggur.sistempakaranggur.adapters.ListGejalaAdapter;
 import dev.anggur.sistempakaranggur.models.Diagnosa;
+import dev.anggur.sistempakaranggur.utils.SessionManager;
 
 public class DetailDiagnosaActivity extends AppCompatActivity {
 
@@ -28,19 +32,26 @@ public class DetailDiagnosaActivity extends AppCompatActivity {
     @BindView(R.id.txv_keterangan)
     TextView txvKeterangan;
     @BindView(R.id.lsv_gejala)
-    ListView lsvGejala;
+    NonScrollListView lsvGejala;
+    @BindView(R.id.ll_button_container)
+    LinearLayout llButtonContainer;
 
-     private Diagnosa diagnosa;
+    private Diagnosa diagnosa;
+    private SessionManager sessionManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_diagnosa);
         ButterKnife.bind(this);
+        sessionManager = new SessionManager(this);
+        if (!sessionManager.getDetaiLogin().get(SessionManager.KEY_LEVEL).equals("admin"))
+            llButtonContainer.setVisibility(View.GONE);
         diagnosa = getIntent().getParcelableExtra(EXTRA_DIAGNOSA);
         txvJudulDiagnosa.setText(diagnosa.getNama_diagnosa());
         txvKeterangan.setText(diagnosa.getKeterangan());
 
-        ListGejalaAdapter adapter = new ListGejalaAdapter(this,R.layout.list_item,diagnosa.getGejala());
+        ListGejalaAdapter adapter = new ListGejalaAdapter(this, R.layout.list_item, diagnosa.getGejala());
         lsvGejala.setAdapter(adapter);
     }
 
@@ -48,8 +59,8 @@ public class DetailDiagnosaActivity extends AppCompatActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_tambah_gejala:
-                Intent intent = new Intent(DetailDiagnosaActivity.this,TambahGejalaToDiagnosaActivity.class);
-                intent.putExtra(TambahGejalaToDiagnosaActivity.EXTRA_DIAGNOSA,diagnosa);
+                Intent intent = new Intent(DetailDiagnosaActivity.this, TambahGejalaToDiagnosaActivity.class);
+                intent.putExtra(TambahGejalaToDiagnosaActivity.EXTRA_DIAGNOSA, diagnosa);
                 startActivity(intent);
                 break;
             case R.id.btn_edit_diagnosa:
