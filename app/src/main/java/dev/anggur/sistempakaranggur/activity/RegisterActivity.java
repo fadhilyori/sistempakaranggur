@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -42,7 +43,6 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
         ButterKnife.bind(this);
 
-
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Loading . . . . .");
         progressDialog.setCancelable(false);
@@ -52,9 +52,25 @@ public class RegisterActivity extends AppCompatActivity {
     public void onViewClicked(final View view) {
         switch (view.getId()) {
             case R.id.btn_register:
-                progressDialog.show();
-                String username = edtUsername.getText().toString().trim();
+                final String username = edtUsername.getText().toString().trim();
                 String password = edtPassword.getText().toString().trim();
+                if (TextUtils.isEmpty(username)){
+                    edtUsername.setError("Masukkan Username");
+                    return;
+                }
+                if (TextUtils.isEmpty(password)){
+                    edtPassword.setError("Masukkan Password");
+                    return;
+                }
+                if (username.length()<5){
+                    edtUsername.setError("Username Minimal 5 karakter");
+                    return;
+                }
+                if (password.length()<5){
+                    edtPassword.setError("Password Minimal 5 karakter");
+                    return;
+                }
+                progressDialog.show();
                 ApiRequest request = RetroClient.getRequestService();
                 Call<ResponseUser> register = request.register(username,password);
                 register.enqueue(new Callback<ResponseUser>() {
@@ -62,17 +78,21 @@ public class RegisterActivity extends AppCompatActivity {
                     public void onResponse(@NonNull Call<ResponseUser> call, @NonNull Response<ResponseUser> response) {
                         progressDialog.dismiss();
                         if (response.code() == 200) {
-                            Intent intentToDiagnosa = new Intent(RegisterActivity.this,LoginActivity.class);
-                            intentToDiagnosa.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
-                            startActivity(intentToDiagnosa);
+                            if (response.body().isSuccess()) {
+                                Snackbar.make(view, "Register Berhasil : Silahkan Login", Snackbar.LENGTH_LONG).show();
+                                startActivity(new Intent(RegisterActivity.this,LoginActivity.class));
+                                finish();
+                            }else{
+                                Snackbar.make(view, "Gagal : Username / Password Salah", Snackbar.LENGTH_LONG).show();
+                            }
                         }
-                        else Snackbar.make(view, "Login Gagal : Email atau Password Salah", Snackbar.LENGTH_LONG).show();
+                        else Snackbar.make(view, "Error code " + response.code() + " : " + response.message(), Snackbar.LENGTH_LONG).show();
                     }
 
                     @Override
-                    public void onFailure(Call<ResponseUser> call, Throwable t) {
+                    public void onFailure(@NonNull Call<ResponseUser> call, @NonNull Throwable t) {
                         progressDialog.dismiss();
-                        Snackbar.make(view, "Login Gagal : gagal menghubungkan ke server", Snackbar.LENGTH_LONG).show();
+                        Snackbar.make(view, "Register Gagal : gagal menghubungkan ke server", Snackbar.LENGTH_LONG).show();
                         Log.d(getLocalClassName(), "onFailure: " + t.getMessage());
                     }
                 });
