@@ -1,5 +1,8 @@
 package dev.anggur.sistempakaranggur.api;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -8,7 +11,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 public class RetroClient {
-    private static final String base_url = "http://10.208.129.21/sp-cf/";
+    private static final String base_url = "http://192.168.43.20/sp-cf/";
     private static Retrofit retrofit = null;
 
     private static Retrofit getClient(){

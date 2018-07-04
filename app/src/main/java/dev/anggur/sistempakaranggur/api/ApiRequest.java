@@ -27,8 +27,8 @@ public interface ApiRequest {
     @FormUrlEncoded
     @Headers({"Accept: application/json"})
     @POST("panggil.php?panggil=register")
-    Call<ResponseUser> register (@Field("name") String nama,
-                                 @Field("password") String password);
+    Call<ResponseUser> register (@Field("username") String username,
+                                @Field("password") String password);
 
     @GET("panggil.php?panggil=getAllDiagnosa")
     Call<ArrayList<Diagnosa>> getDiagnosa ();
