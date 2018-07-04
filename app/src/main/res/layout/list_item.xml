@@ -10,6 +10,7 @@
         android:layout_height="wrap_content">
 
         <TextView
+            android:id="@+id/txv_judul_item"
             android:layout_width="match_parent"
             android:padding="10dp"
             android:layout_height="wrap_content"
