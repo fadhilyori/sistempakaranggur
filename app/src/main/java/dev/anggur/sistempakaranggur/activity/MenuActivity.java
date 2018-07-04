@@ -10,6 +10,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import dev.anggur.sistempakaranggur.R;
+import dev.anggur.sistempakaranggur.utils.SessionManager;
 
 public class MenuActivity extends AppCompatActivity {
 
@@ -19,12 +20,14 @@ public class MenuActivity extends AppCompatActivity {
     Button btnKonsultasi;
     @BindView(R.id.btn_logout)
     Button btnLogout;
+    SessionManager sessionManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
         ButterKnife.bind(this);
+        sessionManager = new SessionManager(this);
     }
 
     @OnClick({R.id.btn_daftar_diagnosa, R.id.btn_konsultasi, R.id.btn_logout})
@@ -37,6 +40,7 @@ public class MenuActivity extends AppCompatActivity {
                 startActivity(new Intent(MenuActivity.this,KonsultasiActivity.class));
                 break;
             case R.id.btn_logout:
+                sessionManager.logout();
                 break;
         }
     }

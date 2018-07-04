@@ -6,18 +6,18 @@ package dev.anggur.sistempakaranggur.models;
 
 public class ResponseUser {
     private boolean isSuccess;
-    private String user;
+    private String level;
 
-    public ResponseUser(boolean isSuccess, String user) {
+    public ResponseUser(boolean isSuccess, String level) {
         this.isSuccess = isSuccess;
-        this.user = user;
+        this.level = level;
     }
 
     public boolean isSuccess() {
         return isSuccess;
     }
 
-    public String getUser() {
-        return user;
+    public String getLevel() {
+        return level;
     }
 }
