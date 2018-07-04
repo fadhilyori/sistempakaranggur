@@ -8,6 +8,7 @@ import java.util.HashMap;
 
 import dev.anggur.sistempakaranggur.activity.DiagnosaActivity;
 import dev.anggur.sistempakaranggur.activity.LoginActivity;
+import dev.anggur.sistempakaranggur.activity.MenuActivity;
 
 /**
  * Created by Imam Abu Mansur on 04/07/2018.
@@ -16,9 +17,8 @@ import dev.anggur.sistempakaranggur.activity.LoginActivity;
 public class SessionManager {
     private SharedPreferences preferences;
     private SharedPreferences.Editor editor;
-    public static final String KEY_NAMA = "KEY_NAMA";
-    public static final String KEY_EMAIL = "KEY_EMAIL";
-    public static final String KEY_TOKEN = "KEY_TOKEN";
+    public static final String KEY_USERNAME = "KEY_USERNAME";
+    public static final String KEY_LEVEL = "KEY_LEVEL";
     private static final String is_login = "login";
     private final String SHARE_NAME = "loginsession";
     private Context context;
@@ -30,22 +30,20 @@ public class SessionManager {
     }
 
     //Masukkan nilai yang ingin disimpan
-    public void storeLogin(String nama, String email, String token){
+    public void storeLogin(String username, String level){
         editor.putBoolean(is_login,true);
-        editor.putString(KEY_NAMA, nama);
-        editor.putString(KEY_EMAIL, email);
-        editor.putString(KEY_TOKEN, token);
+        editor.putString(KEY_USERNAME, username);
+        editor.putString(KEY_LEVEL, level);
         editor.commit();
-        Intent intent = new Intent(context, DiagnosaActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK| Intent.FLAG_ACTIVITY_NEW_TASK);
+        Intent intent = new Intent(context, MenuActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(intent);
     }
 
     public HashMap<String,String> getDetaiLogin(){
         HashMap<String,String> map = new HashMap<>();
-        map.put(KEY_NAMA,preferences.getString(KEY_NAMA,null));
-        map.put(KEY_EMAIL,preferences.getString(KEY_EMAIL,null));
-        map.put(KEY_TOKEN,preferences.getString(KEY_TOKEN,null));
+        map.put(KEY_USERNAME,preferences.getString(KEY_USERNAME,null));
+        map.put(KEY_LEVEL,preferences.getString(KEY_LEVEL,null));
         return map;
     }
 
