@@ -1,9 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
     tools:context="dev.anggur.sistempakaranggur.activity.TambahDiagnosaActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textColor="@android:color/black"
+        android:textAlignment="center"
+        android:text="@string/label_judul_diagnosa"
+        android:labelFor="@id/edt_judul_diagnosa"/>
+    <EditText
+        android:id="@+id/edt_judul_diagnosa"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:textSize="20sp"
+        android:inputType="textCapWords"
+        android:layout_marginBottom="20dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textColor="@android:color/black"
+        android:textAlignment="center"
+        android:text="@string/label_keterangan_diagnosa"
+        android:labelFor="@id/edt_keterangan_diagnosa"/>
+    <EditText
+        android:id="@+id/edt_keterangan_diagnosa"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:textSize="20sp"
+        android:inputType="text" />
+
+    <Button
+        android:id="@+id/btn_submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="@string/btn_text_submit"/>
+</LinearLayout>

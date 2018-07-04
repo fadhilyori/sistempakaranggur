@@ -15,4 +15,8 @@
     <string name="btn_text_tambahkan_gejala">TAMBAHKAN GEJALA</string>
     <string name="btn_text_daftar_diagnosa">Daftar Diagnosa</string>
     <string name="btn_text_konsultasi">Konsultasi</string>
+    <string name="label_keterangan_diagnosa">KETERANGAN</string>
+    <string name="label_judul_diagnosa">JUDUL DIAGNOSA</string>
+    <string name="btn_text_submit">SUBMIT</string>
+    <string name="btn_text_logout">LOGOUT</string>
 </resources>

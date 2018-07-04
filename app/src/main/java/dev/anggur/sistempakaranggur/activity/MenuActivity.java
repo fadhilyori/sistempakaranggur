@@ -17,6 +17,8 @@ public class MenuActivity extends AppCompatActivity {
     Button btnDaftarDiagnosa;
     @BindView(R.id.btn_konsultasi)
     Button btnKonsultasi;
+    @BindView(R.id.btn_logout)
+    Button btnLogout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +27,7 @@ public class MenuActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.btn_daftar_diagnosa, R.id.btn_konsultasi})
+    @OnClick({R.id.btn_daftar_diagnosa, R.id.btn_konsultasi, R.id.btn_logout})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_daftar_diagnosa:
@@ -33,6 +35,8 @@ public class MenuActivity extends AppCompatActivity {
                 break;
             case R.id.btn_konsultasi:
                 startActivity(new Intent(MenuActivity.this,KonsultasiActivity.class));
+                break;
+            case R.id.btn_logout:
                 break;
         }
     }

@@ -22,6 +22,16 @@
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         tools:listitem="@android:layout/simple_dropdown_item_1line"/>
+    <EditText
+        android:id="@+id/edt_mb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="mb"/>
+    <EditText
+        android:id="@+id/edt_md"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="md"/>
     <Button
         android:id="@+id/btn_tambah"
         android:layout_width="match_parent"
