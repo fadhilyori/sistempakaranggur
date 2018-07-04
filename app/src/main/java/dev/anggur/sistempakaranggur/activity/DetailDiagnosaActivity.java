@@ -12,8 +12,12 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import dev.anggur.sistempakaranggur.R;
+import dev.anggur.sistempakaranggur.adapters.ListGejalaAdapter;
+import dev.anggur.sistempakaranggur.models.Diagnosa;
 
 public class DetailDiagnosaActivity extends AppCompatActivity {
+
+    public static final String EXTRA_DIAGNOSA = "extra_diagnosa";
 
     @BindView(R.id.txv_judul_diagnosa)
     TextView txvJudulDiagnosa;
@@ -26,18 +30,27 @@ public class DetailDiagnosaActivity extends AppCompatActivity {
     @BindView(R.id.lsv_gejala)
     ListView lsvGejala;
 
+     private Diagnosa diagnosa;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_diagnosa);
         ButterKnife.bind(this);
+        diagnosa = getIntent().getParcelableExtra(EXTRA_DIAGNOSA);
+        txvJudulDiagnosa.setText(diagnosa.getNama_diagnosa());
+        txvKeterangan.setText(diagnosa.getKeterangan());
+
+        ListGejalaAdapter adapter = new ListGejalaAdapter(this,R.layout.list_item,diagnosa.getGejala());
+        lsvGejala.setAdapter(adapter);
     }
 
     @OnClick({R.id.btn_tambah_gejala, R.id.btn_edit_diagnosa})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_tambah_gejala:
-                startActivity(new Intent(DetailDiagnosaActivity.this,TambahGejalaToDiagnosaActivity.class));
+                Intent intent = new Intent(DetailDiagnosaActivity.this,TambahGejalaToDiagnosaActivity.class);
+                intent.putExtra(TambahGejalaToDiagnosaActivity.EXTRA_DIAGNOSA,diagnosa);
+                startActivity(intent);
                 break;
             case R.id.btn_edit_diagnosa:
                 break;

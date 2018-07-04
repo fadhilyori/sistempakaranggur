@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
-        tools:listitem="@layout/list_item"/>
+        tools:listitem="@android:layout/simple_dropdown_item_1line"/>
     <Button
         android:id="@+id/btn_tambah"
         android:layout_width="match_parent"

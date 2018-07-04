@@ -37,7 +37,7 @@ public class LoginActivity extends AppCompatActivity {
         switch (view.getId()) {
             case R.id.btn_login:
                 Intent intentToDiagnosa = new Intent(LoginActivity.this,MenuActivity.class);
-                intentToDiagnosa.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intentToDiagnosa.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intentToDiagnosa);
                 break;
             case R.id.txv_to_register:

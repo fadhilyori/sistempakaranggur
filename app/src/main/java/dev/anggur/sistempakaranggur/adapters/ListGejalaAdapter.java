@@ -10,20 +10,20 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import dev.anggur.sistempakaranggur.R;
 import dev.anggur.sistempakaranggur.models.Diagnosa;
+import dev.anggur.sistempakaranggur.models.Gejala;
 
 /**
  * Created by Imam Abu Mansur on 04/07/2018.
  */
 
-public class ListDiagnosaAdapter extends ArrayAdapter<Diagnosa> {
+public class ListGejalaAdapter extends ArrayAdapter<Gejala> {
 
     private int listItemLayout;
 
-    public ListDiagnosaAdapter(@NonNull Context context, int resource, @NonNull ArrayList<Diagnosa> objects) {
+    public ListGejalaAdapter(@NonNull Context context, int resource, @NonNull ArrayList<Gejala> objects) {
         super(context, resource, objects);
         listItemLayout = resource;
     }
@@ -31,7 +31,7 @@ public class ListDiagnosaAdapter extends ArrayAdapter<Diagnosa> {
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        Diagnosa diagnosa = getItem(position);
+        Gejala gejala = getItem(position);
 
         ViewHolder viewHolder = new ViewHolder();
         if (convertView == null){
@@ -43,12 +43,11 @@ public class ListDiagnosaAdapter extends ArrayAdapter<Diagnosa> {
             viewHolder = (ViewHolder) convertView.getTag();
         }
 
-        viewHolder.txvJudulItem.setText(diagnosa.getNama_diagnosa());
+        viewHolder.txvJudulItem.setText(gejala.getNama_gejala());
 
         return convertView;
     }
     private static class ViewHolder{
         TextView txvJudulItem;
     }
-
 }
