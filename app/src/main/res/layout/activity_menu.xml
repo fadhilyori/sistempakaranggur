@@ -20,6 +20,11 @@
         android:layout_height="wrap_content"
         android:text="@string/btn_text_konsultasi"/>
     <Button
+        android:id="@+id/btn_about"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_text_about"/>
+    <Button
         android:id="@+id/btn_logout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

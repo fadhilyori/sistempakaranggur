@@ -37,21 +37,20 @@ public class DetailDiagnosaActivity extends AppCompatActivity {
     LinearLayout llButtonContainer;
 
     private Diagnosa diagnosa;
-    private SessionManager sessionManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_diagnosa);
         ButterKnife.bind(this);
-        sessionManager = new SessionManager(this);
+        SessionManager sessionManager = new SessionManager(this);
         if (!sessionManager.getDetaiLogin().get(SessionManager.KEY_LEVEL).equals("admin"))
             llButtonContainer.setVisibility(View.GONE);
         diagnosa = getIntent().getParcelableExtra(EXTRA_DIAGNOSA);
         txvJudulDiagnosa.setText(diagnosa.getNama_diagnosa());
         txvKeterangan.setText(diagnosa.getKeterangan());
 
-        ListGejalaAdapter adapter = new ListGejalaAdapter(this, R.layout.list_item, diagnosa.getGejala());
+        ListGejalaAdapter adapter = new ListGejalaAdapter(this, R.layout.list_item_gejala, diagnosa.getGejala());
         lsvGejala.setAdapter(adapter);
     }
 
@@ -64,6 +63,9 @@ public class DetailDiagnosaActivity extends AppCompatActivity {
                 startActivity(intent);
                 break;
             case R.id.btn_edit_diagnosa:
+                Intent intent1 = new Intent(DetailDiagnosaActivity.this, UpdateDiagnosaActivity.class);
+                intent1.putExtra(TambahGejalaToDiagnosaActivity.EXTRA_DIAGNOSA, diagnosa);
+                startActivity(intent1);
                 break;
         }
     }

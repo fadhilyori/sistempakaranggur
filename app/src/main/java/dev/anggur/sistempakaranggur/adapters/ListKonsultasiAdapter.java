@@ -7,24 +7,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
 import dev.anggur.sistempakaranggur.R;
-import dev.anggur.sistempakaranggur.models.Diagnosa;
-import dev.anggur.sistempakaranggur.models.Gejala;
+import dev.anggur.sistempakaranggur.models.Konsultasi;
 
-/**
- * Created by Imam Abu Mansur on 04/07/2018.
- */
-
-public class ListGejalaAdapter extends ArrayAdapter<Gejala> {
+public class ListKonsultasiAdapter extends ArrayAdapter<Konsultasi> {
 
     private int listItemLayout;
 
-    public ListGejalaAdapter(@NonNull Context context, int resource, @NonNull ArrayList<Gejala> objects) {
+    public ListKonsultasiAdapter(@NonNull Context context, int resource, @NonNull ArrayList<Konsultasi> objects) {
         super(context, resource, objects);
         listItemLayout = resource;
     }
@@ -32,25 +26,29 @@ public class ListGejalaAdapter extends ArrayAdapter<Gejala> {
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        Gejala gejala = getItem(position);
+        Konsultasi konsultasi = getItem(position);
 
         ViewHolder viewHolder = new ViewHolder();
         if (convertView == null){
             LayoutInflater inflater = LayoutInflater.from(getContext());
             convertView = inflater.inflate(listItemLayout, parent, false);
-            viewHolder.txvJudulItem = convertView.findViewById(R.id.txv_judul_item);
-            viewHolder.imvDelete = convertView.findViewById(R.id.imv_delete);
+            viewHolder.txvNamaDiagnosa = convertView.findViewById(R.id.txv_nama_diagnosa);
+            viewHolder.txvKepercayaan = convertView.findViewById(R.id.txv_kepercayaan);
+            viewHolder.txvSolusi = convertView.findViewById(R.id.txv_solusi);
             convertView.setTag(viewHolder);
         }else{
             viewHolder = (ViewHolder) convertView.getTag();
         }
 
-        viewHolder.txvJudulItem.setText(gejala.getNama_gejala());
+        viewHolder.txvNamaDiagnosa.setText(konsultasi.getNama_diagnosa());
+        viewHolder.txvKepercayaan.setText(String.valueOf(konsultasi.getKepercayaan()));
+        viewHolder.txvSolusi.setText(konsultasi.getSolusi());
 
         return convertView;
     }
     private static class ViewHolder{
-        TextView txvJudulItem;
-        ImageView imvDelete;
+        TextView txvNamaDiagnosa;
+        TextView txvKepercayaan;
+        TextView txvSolusi;
     }
 }

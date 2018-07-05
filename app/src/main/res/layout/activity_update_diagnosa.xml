@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="20dp"
-    tools:context="dev.anggur.sistempakaranggur.activity.TambahDiagnosaActivity">
+    tools:context=".activity.UpdateDiagnosaActivity">
 
     <TextView
         android:layout_width="match_parent"
@@ -16,13 +15,12 @@
         android:textAlignment="center"
         android:text="@string/label_kode_diagnosa"
         android:labelFor="@id/edt_kode_diagnosa"/>
-    <EditText
-        android:id="@+id/edt_kode_diagnosa"
+    <TextView
+        android:id="@+id/txv_kode_diagnosa"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="14sp"
-        android:inputType="textCapCharacters"
-        android:gravity="top"
+        android:textAlignment="center"
         android:layout_marginBottom="20dp"
         android:backgroundTint="@android:color/white"/>
 
@@ -61,11 +59,11 @@
         android:inputType="text|textMultiLine"
         android:backgroundTint="@android:color/white"/>
 
-
     <Button
         android:id="@+id/btn_submit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:text="@string/btn_text_submit"/>
+
 </LinearLayout>

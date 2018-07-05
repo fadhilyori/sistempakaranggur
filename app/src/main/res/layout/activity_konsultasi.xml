@@ -33,12 +33,6 @@
             android:layout_gravity="center_horizontal"
             android:text="Submit" />
 
-        <dev.anggur.sistempakaranggur.NonScrollListView
-            android:id="@+id/lst_hasil"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:listitem="@layout/list_item" />
-
     </LinearLayout>
 
 </ScrollView>

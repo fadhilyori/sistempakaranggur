@@ -15,9 +15,18 @@ public class Diagnosa implements Parcelable {
     private String keterangan;
     private ArrayList<Gejala> gejala;
 
+    public void setNama_diagnosa(String nama_diagnosa) {
+        this.nama_diagnosa = nama_diagnosa;
+    }
+
+    public void setKeterangan(String keterangan) {
+        this.keterangan = keterangan;
+    }
+
     public Diagnosa(String kode_diagnosa, String nama_diagnosa, String keterangan, ArrayList<Gejala> gejala) {
         this.kode_diagnosa = kode_diagnosa;
         this.nama_diagnosa = nama_diagnosa;
+
         this.keterangan = keterangan;
         this.gejala = gejala;
     }

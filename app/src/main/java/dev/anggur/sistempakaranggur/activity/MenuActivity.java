@@ -18,6 +18,8 @@ public class MenuActivity extends AppCompatActivity {
     Button btnDaftarDiagnosa;
     @BindView(R.id.btn_konsultasi)
     Button btnKonsultasi;
+    @BindView(R.id.btn_about)
+    Button btnTentang;
     @BindView(R.id.btn_logout)
     Button btnLogout;
     SessionManager sessionManager;
@@ -30,7 +32,7 @@ public class MenuActivity extends AppCompatActivity {
         sessionManager = new SessionManager(this);
     }
 
-    @OnClick({R.id.btn_daftar_diagnosa, R.id.btn_konsultasi, R.id.btn_logout})
+    @OnClick({R.id.btn_daftar_diagnosa, R.id.btn_konsultasi, R.id.btn_logout, R.id.btn_about})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_daftar_diagnosa:
@@ -38,6 +40,9 @@ public class MenuActivity extends AppCompatActivity {
                 break;
             case R.id.btn_konsultasi:
                 startActivity(new Intent(MenuActivity.this,KonsultasiActivity.class));
+                break;
+            case R.id.btn_about:
+                startActivity(new Intent(MenuActivity.this,AboutActivity.class));
                 break;
             case R.id.btn_logout:
                 sessionManager.logout();

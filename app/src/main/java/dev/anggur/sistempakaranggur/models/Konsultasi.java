@@ -7,27 +7,19 @@ import android.os.Parcelable;
  * Created by Imam Abu Mansur on 04/07/2018.
  */
 
-public class ResponseKonsultasi implements Parcelable {
+public class Konsultasi implements Parcelable {
     private String nama_diagnosa;
     private double kepercayaan;
     private String solusi;
 
-    public ResponseKonsultasi(String nama_diagnosa, double kepercayaan, String solusi) {
+    public Konsultasi(String nama_diagnosa, double kepercayaan, String solusi) {
         this.nama_diagnosa = nama_diagnosa;
         this.kepercayaan = kepercayaan;
         this.solusi = solusi;
     }
 
-    public String getNama_responseKonsultasi() {
+    public String getNama_diagnosa() {
         return nama_diagnosa;
-    }
-
-    public double getKepercayaan_responseKonsultasi() {
-        return kepercayaan;
-    }
-
-    public String getSolusi_responseKonsultasi() {
-        return solusi;
     }
 
     public double getKepercayaan() {
@@ -50,21 +42,21 @@ public class ResponseKonsultasi implements Parcelable {
         dest.writeString(this.solusi);
     }
 
-    protected ResponseKonsultasi(Parcel in) {
+    protected Konsultasi(Parcel in) {
         this.nama_diagnosa = in.readString();
         this.kepercayaan = in.readDouble();
         this.solusi = in.readString();
     }
 
-    public static final Parcelable.Creator<ResponseKonsultasi> CREATOR = new Parcelable.Creator<ResponseKonsultasi>() {
+    public static final Parcelable.Creator<Konsultasi> CREATOR = new Parcelable.Creator<Konsultasi>() {
         @Override
-        public ResponseKonsultasi createFromParcel(Parcel source) {
-            return new ResponseKonsultasi(source);
+        public Konsultasi createFromParcel(Parcel source) {
+            return new Konsultasi(source);
         }
 
         @Override
-        public ResponseKonsultasi[] newArray(int size) {
-            return new ResponseKonsultasi[size];
+        public Konsultasi[] newArray(int size) {
+            return new Konsultasi[size];
         }
     };
 }

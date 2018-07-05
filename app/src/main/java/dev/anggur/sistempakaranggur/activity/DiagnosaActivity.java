@@ -1,7 +1,9 @@
 package dev.anggur.sistempakaranggur.activity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +14,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -23,6 +26,7 @@ import dev.anggur.sistempakaranggur.api.RetroClient;
 import dev.anggur.sistempakaranggur.models.Diagnosa;
 import dev.anggur.sistempakaranggur.models.Gejala;
 import dev.anggur.sistempakaranggur.models.ResponseUser;
+import dev.anggur.sistempakaranggur.utils.SessionManager;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -35,20 +39,29 @@ public class DiagnosaActivity extends AppCompatActivity {
     FloatingActionButton fabTambahDiagnosa;
 
     ArrayList<Diagnosa> listDiagnosa = new ArrayList<>();
-    ArrayList<Gejala> listGejala = new ArrayList<>();
     ListDiagnosaAdapter adapter;
+    ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_diagnosa);
         ButterKnife.bind(this);
+        SessionManager sessionManager = new SessionManager(this);
+        HashMap<String,String> user = sessionManager.getDetaiLogin();
+        if (!user.get(SessionManager.KEY_LEVEL).equals("admin"))
+            fabTambahDiagnosa.setVisibility(View.GONE);
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Sedang Mengambil Data . . . .");
+        progressDialog.setCancelable(false);
+        progressDialog.show();
 
         ApiRequest request = RetroClient.getRequestService();
         Call<ArrayList<Diagnosa>> getDiagnosa = request.getDiagnosa();
         getDiagnosa.enqueue(new Callback<ArrayList<Diagnosa>>() {
             @Override
-            public void onResponse(Call<ArrayList<Diagnosa>> call, Response<ArrayList<Diagnosa>> response) {
+            public void onResponse(@NonNull Call<ArrayList<Diagnosa>> call, @NonNull Response<ArrayList<Diagnosa>> response) {
+                progressDialog.dismiss();
                 if (response.code() == 200){
                     listDiagnosa = response.body();
                     adapter = new ListDiagnosaAdapter(DiagnosaActivity.this,R.layout.list_item,listDiagnosa);
@@ -61,6 +74,8 @@ public class DiagnosaActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<ArrayList<Diagnosa>> call, Throwable t) {
+                progressDialog.dismiss();
+                Toast.makeText(DiagnosaActivity.this, "Gagal mengambil data", Toast.LENGTH_SHORT).show();
                 Log.d(getLocalClassName(), "onFailure: " + t.getMessage());
                 finish();
             }

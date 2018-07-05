@@ -19,4 +19,11 @@
     <string name="label_judul_diagnosa">JUDUL DIAGNOSA</string>
     <string name="btn_text_submit">SUBMIT</string>
     <string name="btn_text_logout">LOGOUT</string>
+    <string name="label_kode_diagnosa">Kode Diagnosa</string>
+    <string name="text_dummy_solusi">solusi disini</string>
+    <string name="label_solusi">Solusi \t\t:</string>
+    <string name="label_kepercayaan">Kepercayaan \t\t:</string>
+    <string name="about_judul">Sistem Pakar Metode Certainty Factor (CF)</string>
+    <string name="about_isi">Sistem pakar metode Certainty Factor. Studi kasus: mendiagnosa penyakit pada tanaman anggur. Aplikasi ini adalah dibuat untuk membantu para masyarakat juga petani dalan mendiagnosa atau mengidentefikasi penyakit yang menyerang dan terinfeksi. Sitem ini dibuat dengan Metode Certainty Factor.</string>
+    <string name="btn_text_about">TENTANG</string>
 </resources>

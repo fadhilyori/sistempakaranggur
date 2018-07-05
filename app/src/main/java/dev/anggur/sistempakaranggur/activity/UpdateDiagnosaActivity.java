@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import butterknife.BindView;
@@ -17,42 +18,45 @@ import butterknife.OnClick;
 import dev.anggur.sistempakaranggur.R;
 import dev.anggur.sistempakaranggur.api.ApiRequest;
 import dev.anggur.sistempakaranggur.api.RetroClient;
+import dev.anggur.sistempakaranggur.models.Diagnosa;
 import dev.anggur.sistempakaranggur.models.ResponseUser;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class TambahDiagnosaActivity extends AppCompatActivity {
+public class UpdateDiagnosaActivity extends AppCompatActivity {
 
+
+    @BindView(R.id.txv_kode_diagnosa)
+    TextView txvKodeDiagnosa;
     @BindView(R.id.edt_judul_diagnosa)
     EditText edtJudulDiagnosa;
     @BindView(R.id.edt_keterangan_diagnosa)
     EditText edtKeteranganDiagnosa;
     @BindView(R.id.btn_submit)
     Button btnSubmit;
-    @BindView(R.id.edt_kode_diagnosa)
-    EditText edtKodeDiagnosa;
 
     ProgressDialog progressDialog;
+    private Diagnosa diagnosa;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tambah_diagnosa);
+        setContentView(R.layout.activity_update_diagnosa);
         ButterKnife.bind(this);
+        diagnosa = getIntent().getParcelableExtra(DetailDiagnosaActivity.EXTRA_DIAGNOSA);
+        txvKodeDiagnosa.setText(diagnosa.getKode_diagnosa());
+        edtJudulDiagnosa.setText(diagnosa.getNama_diagnosa());
+        edtKeteranganDiagnosa.setText(diagnosa.getKeterangan());
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Sedang Mengirim Data");
     }
 
     @OnClick(R.id.btn_submit)
     public void onViewClicked() {
-        String kode = edtKodeDiagnosa.getText().toString().trim();
-        String judul = edtJudulDiagnosa.getText().toString().trim();
-        String keterangan = edtKeteranganDiagnosa.getText().toString().trim();
-        if (TextUtils.isEmpty(kode)){
-            edtKodeDiagnosa.setError("Masukkan kode diagnosa");
-            return;
-        }
+        String kode = txvKodeDiagnosa.getText().toString().trim();
+        final String judul = edtJudulDiagnosa.getText().toString().trim();
+        final String keterangan = edtKeteranganDiagnosa.getText().toString().trim();
         if (TextUtils.isEmpty(judul)){
             edtJudulDiagnosa.setError("Masukkan keterangan diagnosa");
             return;
@@ -63,33 +67,34 @@ public class TambahDiagnosaActivity extends AppCompatActivity {
         }
         progressDialog.show();
         ApiRequest request = RetroClient.getRequestService();
-        Call<ResponseUser> addDiagnosa = request.addDiagnosa(kode,judul,keterangan);
-        addDiagnosa.enqueue(new Callback<ResponseUser>() {
+        Call<ResponseUser> updateDiagnosa = request.updateDiagnosa(kode,judul,keterangan);
+        updateDiagnosa.enqueue(new Callback<ResponseUser>() {
             @Override
             public void onResponse(@NonNull Call<ResponseUser> call, @NonNull Response<ResponseUser> response) {
                 progressDialog.dismiss();
                 if (response.code() == 200){
                     ResponseUser responseUser = response.body();
                     if (responseUser.isSuccess()){
-                        Toast.makeText(TambahDiagnosaActivity.this, "Berhasil Menambahkan Diagnosa", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(TambahDiagnosaActivity.this,DetailDiagnosaActivity.class);
+                        Toast.makeText(UpdateDiagnosaActivity.this, "Berhasil Mengedit Diagnosa", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(UpdateDiagnosaActivity.this,DetailDiagnosaActivity.class);
+                        diagnosa.setKeterangan(keterangan);
+                        diagnosa.setNama_diagnosa(judul);
+                        intent.putExtra(DetailDiagnosaActivity.EXTRA_DIAGNOSA,diagnosa);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(intent);
                         finish();
-                    }else{
-                        Toast.makeText(TambahDiagnosaActivity.this, "Kode Diagnosa Sudah Ada", Toast.LENGTH_SHORT).show();
                     }
                 }else{
-                    Toast.makeText(TambahDiagnosaActivity.this, "Gagal Menambahkan Diagnosa", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(UpdateDiagnosaActivity.this, "Gagal Mengedit Diagnosa", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(@NonNull Call<ResponseUser> call, @NonNull Throwable t) {
                 progressDialog.dismiss();
-                Toast.makeText(TambahDiagnosaActivity.this, "Gagal Menghubungkan ke Server", Toast.LENGTH_SHORT).show();
+                Toast.makeText(UpdateDiagnosaActivity.this, "Gagal Menghubungkan ke Server", Toast.LENGTH_SHORT).show();
                 Log.d(getLocalClassName(), "onFailure: " + t.getMessage());
             }
         });
-
     }
 }

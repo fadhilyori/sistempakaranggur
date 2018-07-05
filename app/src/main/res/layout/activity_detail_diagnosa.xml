@@ -66,7 +66,7 @@
                         android:id="@+id/txv_keterangan"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="20sp"
+                        android:textSize="14sp"
                         android:text="@string/teks_dummy_keterangan"/>
 
                 </LinearLayout>
@@ -94,7 +94,7 @@
                         android:id="@+id/lsv_gejala"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        tools:listitem="@layout/list_item"/>
+                        tools:listitem="@layout/list_item_gejala"/>
 
                 </LinearLayout>
             </android.support.v7.widget.CardView>
