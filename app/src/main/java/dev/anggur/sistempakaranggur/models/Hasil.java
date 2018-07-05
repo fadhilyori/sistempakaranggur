@@ -3,30 +3,29 @@ package dev.anggur.sistempakaranggur.models;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-/**
- * Created by Imam Abu Mansur on 04/07/2018.
- */
+import java.util.ArrayList;
 
-public class ResponseKonsultasi implements Parcelable {
+public class Hasil implements Parcelable {
+
     private String nama_diagnosa;
     private double kepercayaan;
     private String solusi;
 
-    public ResponseKonsultasi(String nama_diagnosa, double kepercayaan, String solusi) {
+    public Hasil(String nama_diagnosa, double kepercayaan, String solusi) {
         this.nama_diagnosa = nama_diagnosa;
         this.kepercayaan = kepercayaan;
         this.solusi = solusi;
     }
 
-    public String getNama_responseKonsultasi() {
+    public String getNama_hasil() {
         return nama_diagnosa;
     }
 
-    public double getKepercayaan_responseKonsultasi() {
+    public double getKepercayaan_hasil() {
         return kepercayaan;
     }
 
-    public String getSolusi_responseKonsultasi() {
+    public String getSolusi_hasil() {
         return solusi;
     }
 
@@ -50,21 +49,21 @@ public class ResponseKonsultasi implements Parcelable {
         dest.writeString(this.solusi);
     }
 
-    protected ResponseKonsultasi(Parcel in) {
+    protected Hasil(Parcel in) {
         this.nama_diagnosa = in.readString();
         this.kepercayaan = in.readDouble();
         this.solusi = in.readString();
     }
 
-    public static final Parcelable.Creator<ResponseKonsultasi> CREATOR = new Parcelable.Creator<ResponseKonsultasi>() {
+    public static final Parcelable.Creator<Hasil> CREATOR = new Parcelable.Creator<Hasil>() {
         @Override
-        public ResponseKonsultasi createFromParcel(Parcel source) {
-            return new ResponseKonsultasi(source);
+        public Hasil createFromParcel(Parcel source) {
+            return new Hasil(source);
         }
 
         @Override
-        public ResponseKonsultasi[] newArray(int size) {
-            return new ResponseKonsultasi[size];
+        public Hasil[] newArray(int size) {
+            return new Hasil[size];
         }
     };
 }

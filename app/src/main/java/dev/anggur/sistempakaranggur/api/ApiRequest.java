@@ -42,6 +42,6 @@ public interface ApiRequest {
 
     @FormUrlEncoded
     @Headers({"Accept: application/json"})
-    @POST("panggil.php")
-    Call<ArrayList<ResponseKonsultasi>> konsultasi (@QueryMap Map<String,String> gejala);
+    @POST("panggil.php?panggil=submitKonsultasi")
+    Call<ArrayList<ResponseKonsultasi>> konsultasi (@Field("gejala") String gejala);
 }
