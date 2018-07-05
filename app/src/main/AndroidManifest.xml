@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="dev.anggur.sistempakaranggur">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -29,13 +29,21 @@
         <activity
             android:name=".activity.KonsultasiActivity"
             android:label="Konsultasi" />
-        <activity android:name=".activity.DetailDiagnosaActivity"
-            android:label="Detail Diagnosa"/>
+        <activity
+            android:name=".activity.DetailDiagnosaActivity"
+            android:label="Detail Diagnosa" />
         <activity
             android:name=".activity.TambahGejalaToDiagnosaActivity"
             android:label="Tambah Gejala Diagnosa" />
-        <activity android:name=".activity.TambahDiagnosaActivity" />
-        <activity android:name=".activity.MenuActivity"/>
+        <activity
+            android:name=".activity.TambahDiagnosaActivity"
+            android:label="Tambah Diagnosa" />
+        <activity android:name=".activity.MenuActivity" />
+        <activity
+            android:name=".activity.HasilKonsultasiActivity"
+            android:label="Hasil Konsultasi" />
+        <activity android:name=".activity.UpdateDiagnosaActivity" />
+        <activity android:name=".activity.AboutActivity"></activity>
     </application>
 
 </manifest>
