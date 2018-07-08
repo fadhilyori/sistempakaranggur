@@ -24,7 +24,7 @@
         android:inputType="textCapCharacters"
         android:gravity="top"
         android:layout_marginBottom="20dp"
-        android:backgroundTint="@android:color/white"/>
+        android:background="@android:color/white"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -42,7 +42,7 @@
         android:inputType="textCapWords|textMultiLine"
         android:gravity="top"
         android:layout_marginBottom="20dp"
-        android:backgroundTint="@android:color/white"/>
+        android:background="@android:color/white"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -58,14 +58,15 @@
         android:layout_height="100dp"
         android:textSize="14sp"
         android:gravity="top"
+        android:layout_marginBottom="20dp"
         android:inputType="text|textMultiLine"
-        android:backgroundTint="@android:color/white"/>
-
+        android:background="@android:color/white"/>
 
     <Button
         android:id="@+id/btn_submit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textStyle="bold"
         android:textSize="20sp"
         android:text="@string/btn_text_submit"/>
 </LinearLayout>

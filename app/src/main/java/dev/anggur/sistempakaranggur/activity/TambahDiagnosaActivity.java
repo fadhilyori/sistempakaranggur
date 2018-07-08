@@ -11,12 +11,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import dev.anggur.sistempakaranggur.R;
 import dev.anggur.sistempakaranggur.api.ApiRequest;
 import dev.anggur.sistempakaranggur.api.RetroClient;
+import dev.anggur.sistempakaranggur.models.Diagnosa;
+import dev.anggur.sistempakaranggur.models.Gejala;
 import dev.anggur.sistempakaranggur.models.ResponseUser;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -46,9 +50,9 @@ public class TambahDiagnosaActivity extends AppCompatActivity {
 
     @OnClick(R.id.btn_submit)
     public void onViewClicked() {
-        String kode = edtKodeDiagnosa.getText().toString().trim();
-        String judul = edtJudulDiagnosa.getText().toString().trim();
-        String keterangan = edtKeteranganDiagnosa.getText().toString().trim();
+        final String kode = edtKodeDiagnosa.getText().toString().trim();
+        final String judul = edtJudulDiagnosa.getText().toString().trim();
+        final String keterangan = edtKeteranganDiagnosa.getText().toString().trim();
         if (TextUtils.isEmpty(kode)){
             edtKodeDiagnosa.setError("Masukkan kode diagnosa");
             return;
@@ -71,8 +75,10 @@ public class TambahDiagnosaActivity extends AppCompatActivity {
                 if (response.code() == 200){
                     ResponseUser responseUser = response.body();
                     if (responseUser.isSuccess()){
+                        Diagnosa diagnosa = new Diagnosa(kode,judul,keterangan,new ArrayList<Gejala>());
                         Toast.makeText(TambahDiagnosaActivity.this, "Berhasil Menambahkan Diagnosa", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(TambahDiagnosaActivity.this,DetailDiagnosaActivity.class);
+                        intent.putExtra(DetailDiagnosaActivity.EXTRA_DIAGNOSA,diagnosa);
                         startActivity(intent);
                         finish();
                     }else{

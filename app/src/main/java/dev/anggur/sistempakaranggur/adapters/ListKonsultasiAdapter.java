@@ -1,5 +1,6 @@
 package dev.anggur.sistempakaranggur.adapters;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -23,6 +24,7 @@ public class ListKonsultasiAdapter extends ArrayAdapter<Konsultasi> {
         listItemLayout = resource;
     }
 
+    @SuppressLint("SetTextI18n")
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
@@ -32,6 +34,7 @@ public class ListKonsultasiAdapter extends ArrayAdapter<Konsultasi> {
         if (convertView == null){
             LayoutInflater inflater = LayoutInflater.from(getContext());
             convertView = inflater.inflate(listItemLayout, parent, false);
+            viewHolder.txvIteration = convertView.findViewById(R.id.txv_iteration);
             viewHolder.txvNamaDiagnosa = convertView.findViewById(R.id.txv_nama_diagnosa);
             viewHolder.txvKepercayaan = convertView.findViewById(R.id.txv_kepercayaan);
             viewHolder.txvSolusi = convertView.findViewById(R.id.txv_solusi);
@@ -40,6 +43,7 @@ public class ListKonsultasiAdapter extends ArrayAdapter<Konsultasi> {
             viewHolder = (ViewHolder) convertView.getTag();
         }
 
+        viewHolder.txvIteration.setText("Diagnosa ke-" + (position+1));
         viewHolder.txvNamaDiagnosa.setText(konsultasi.getNama_diagnosa());
         viewHolder.txvKepercayaan.setText(String.valueOf(konsultasi.getKepercayaan()));
         viewHolder.txvSolusi.setText(konsultasi.getSolusi());
@@ -47,6 +51,7 @@ public class ListKonsultasiAdapter extends ArrayAdapter<Konsultasi> {
         return convertView;
     }
     private static class ViewHolder{
+        TextView txvIteration;
         TextView txvNamaDiagnosa;
         TextView txvKepercayaan;
         TextView txvSolusi;

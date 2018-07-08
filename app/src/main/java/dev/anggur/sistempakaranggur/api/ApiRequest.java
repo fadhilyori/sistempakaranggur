@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import dev.anggur.sistempakaranggur.models.Diagnosa;
 import dev.anggur.sistempakaranggur.models.Gejala;
 import dev.anggur.sistempakaranggur.models.Konsultasi;
+import dev.anggur.sistempakaranggur.models.ResponseAddGejala;
 import dev.anggur.sistempakaranggur.models.ResponseUser;
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -55,4 +56,17 @@ public interface ApiRequest {
     Call<ResponseUser> updateDiagnosa (@Field("kode_diagnosa") String kode_diagnosa,
                                     @Field("nama_diagnosa") String nama_diagnosa,
                                     @Field("keterangan") String keterangan);
+
+    @FormUrlEncoded
+    @Headers({"Accept: application/json"})
+    @POST("panggil.php?panggil=addRelasi")
+    Call<ResponseAddGejala> addGejalaToDiagnosa (@Field("kode_diagnosa") String kode_diagnosa,
+                                                 @Field("kode_gejala") String kode_gejala,
+                                                 @Field("md") String md,
+                                                 @Field("mb") String mb);
+    @FormUrlEncoded
+    @Headers({"Accept: application/json"})
+    @POST("panggil.php?panggil=deleteRelasi")
+    Call<ResponseUser> deleteGejala (@Field("kode_diagnosa") String kode_diagnosa,
+                                     @Field("kode_gejala") String kode_gejala);
 }

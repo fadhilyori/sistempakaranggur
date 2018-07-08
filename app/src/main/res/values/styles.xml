@@ -9,6 +9,11 @@
         <item name="android:colorPrimary">@color/colorPrimaryLight</item>
         <item name="android:textColorPrimary">@color/colorPrimaryText</item>
         <item name="android:textColorSecondary">@color/colorSecondaryText</item>
+        <!--<item name="android:buttonStyle">@style/ButtonText</item>-->
+    </style>
+
+    <style name="ButtonText" parent="@android:style/Widget.Button">
+        <item name="android:background">@color/colorPrimary</item>
     </style>
 
 </resources>

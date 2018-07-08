@@ -10,7 +10,7 @@
     <string name="login_here">Login here</string>
     <string name="teks_dummy_keterangan">Deskripsi anda disini, isi banyak ya bafdlkfsldkgksgklsgnklsgnklgfndkgndfkngkdnvwtjiwvthjivhtierwtiru</string>
     <string name="btn_text_tambah_gejala">Tambah Gejala</string>
-    <string name="btn_text_edit_diagnosa">Edit Diagnosa</string>
+    <string name="btn_text_edit_diagnosa">Update Diagnosa</string>
     <string name="author">By : Tutus Dwiyantoro</string>
     <string name="btn_text_tambahkan_gejala">TAMBAHKAN GEJALA</string>
     <string name="btn_text_daftar_diagnosa">Daftar Diagnosa</string>
@@ -20,7 +20,7 @@
     <string name="btn_text_submit">SUBMIT</string>
     <string name="btn_text_logout">LOGOUT</string>
     <string name="label_kode_diagnosa">Kode Diagnosa</string>
-    <string name="text_dummy_solusi">solusi disini</string>
+    <string name="text_dummy_solusi">: solusi disini</string>
     <string name="label_solusi">Solusi \t\t:</string>
     <string name="label_kepercayaan">Kepercayaan \t\t:</string>
     <string name="about_judul">Sistem Pakar Metode Certainty Factor (CF)</string>

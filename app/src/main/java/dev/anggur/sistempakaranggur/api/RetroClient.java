@@ -11,7 +11,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 public class RetroClient {
-    private static final String base_url = "http://192.168.1.33/sp-cf/";
+    private static final String base_url = "http://192.168.43.49/sp-cf/";
     private static Retrofit retrofit = null;
 
     private static Retrofit getClient(){

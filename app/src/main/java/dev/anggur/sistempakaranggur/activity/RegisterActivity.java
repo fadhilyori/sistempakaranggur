@@ -83,7 +83,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 startActivity(new Intent(RegisterActivity.this,LoginActivity.class));
                                 finish();
                             }else{
-                                Snackbar.make(view, "Gagal : Username / Password Salah", Snackbar.LENGTH_LONG).show();
+                                Snackbar.make(view, "Gagal : Username Sudah Ada", Snackbar.LENGTH_LONG).show();
                             }
                         }
                         else Snackbar.make(view, "Error code " + response.code() + " : " + response.message(), Snackbar.LENGTH_LONG).show();
