@@ -6,12 +6,8 @@ import com.google.gson.GsonBuilder;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-/**
- * Created by Imam Abu Mansur on 04/07/2018.
- */
-
 public class RetroClient {
-    private static final String base_url = "http://192.168.43.49/sp-cf/";
+    private static final String base_url = "http://192.168.43.249/sp-cf/"; // Sesuiakan dengan IP komputer server
     private static Retrofit retrofit = null;
 
     private static Retrofit getClient(){

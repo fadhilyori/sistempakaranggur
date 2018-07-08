@@ -70,12 +70,12 @@ public class LoginActivity extends AppCompatActivity {
                     edtPassword.setError("Masukkan Password");
                     return;
                 }
-                if (username.length()<5){
-                    edtUsername.setError("Username Minimal 5 karakter");
+                if (username.length()<4){
+                    edtUsername.setError("Username Minimal 4 karakter");
                     return;
                 }
-                if (password.length()<5){
-                    edtPassword.setError("Password Minimal 5 karakter");
+                if (password.length()<4){
+                    edtPassword.setError("Password Minimal 4 karakter");
                     return;
                 }
                 progressDialog.show();

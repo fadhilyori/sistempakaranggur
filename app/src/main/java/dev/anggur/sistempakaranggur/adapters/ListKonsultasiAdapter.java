@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -38,15 +39,27 @@ public class ListKonsultasiAdapter extends ArrayAdapter<Konsultasi> {
             viewHolder.txvNamaDiagnosa = convertView.findViewById(R.id.txv_nama_diagnosa);
             viewHolder.txvKepercayaan = convertView.findViewById(R.id.txv_kepercayaan);
             viewHolder.txvSolusi = convertView.findViewById(R.id.txv_solusi);
+            viewHolder.linearSolusi = convertView.findViewById(R.id.linear_solusi);
             convertView.setTag(viewHolder);
         }else{
             viewHolder = (ViewHolder) convertView.getTag();
         }
 
-        viewHolder.txvIteration.setText("Diagnosa ke-" + (position+1));
-        viewHolder.txvNamaDiagnosa.setText(konsultasi.getNama_diagnosa());
-        viewHolder.txvKepercayaan.setText(String.valueOf(konsultasi.getKepercayaan()));
-        viewHolder.txvSolusi.setText(konsultasi.getSolusi());
+        if (position == 0) {
+            viewHolder.txvIteration.setText("Hasil Diagnosa : ");
+            viewHolder.txvNamaDiagnosa.setText(konsultasi.getNama_diagnosa());
+            viewHolder.txvKepercayaan.setText(String.valueOf(konsultasi.getKepercayaan() * 100) + "%");
+            viewHolder.txvSolusi.setText(konsultasi.getSolusi());
+        } else {
+            viewHolder.txvIteration.setText("Diagnosa ke-" + String.valueOf(position + 1));
+            viewHolder.txvNamaDiagnosa.setText(konsultasi.getNama_diagnosa());
+            viewHolder.txvKepercayaan.setText(String.valueOf(konsultasi.getKepercayaan() * 100) + "%");
+            viewHolder.linearSolusi.removeAllViewsInLayout();
+        }
+//        viewHolder.txvIteration.setText("Diagnosa ke-" + (position+1));
+//        viewHolder.txvNamaDiagnosa.setText(konsultasi.getNama_diagnosa());
+//        viewHolder.txvKepercayaan.setText(String.valueOf(konsultasi.getKepercayaan() * 100) + "%");
+//        viewHolder.txvSolusi.setText(konsultasi.getSolusi());
 
         return convertView;
     }
@@ -55,5 +68,6 @@ public class ListKonsultasiAdapter extends ArrayAdapter<Konsultasi> {
         TextView txvNamaDiagnosa;
         TextView txvKepercayaan;
         TextView txvSolusi;
+        LinearLayout linearSolusi;
     }
 }
