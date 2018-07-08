@@ -5,8 +5,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.HashMap;
 
@@ -37,6 +39,7 @@ public class DetailDiagnosaActivity extends AppCompatActivity {
     LinearLayout llButtonContainer;
 
     private Diagnosa diagnosa;
+    private ListGejalaAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +53,7 @@ public class DetailDiagnosaActivity extends AppCompatActivity {
         txvJudulDiagnosa.setText(diagnosa.getNama_diagnosa());
         txvKeterangan.setText(diagnosa.getKeterangan());
 
-        ListGejalaAdapter adapter = new ListGejalaAdapter(this, R.layout.list_item_gejala, diagnosa.getGejala());
+        adapter = new ListGejalaAdapter(this, R.layout.list_item_gejala, diagnosa.getGejala(), diagnosa.getKode_diagnosa());
         lsvGejala.setAdapter(adapter);
     }
 

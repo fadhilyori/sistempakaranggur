@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layout_marginBottom="5dp">
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
@@ -17,7 +18,6 @@
             <TextView
                 android:id="@+id/txv_judul_item"
                 android:layout_width="0dp"
-                android:paddingStart="30dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:textSize="14sp"
